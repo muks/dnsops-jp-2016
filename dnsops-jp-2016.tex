@@ -49,6 +49,11 @@
 
   \begin{itemize}
 
+  \item Before Catalog Zones, operators didn't have any way to
+    automatically create a new zone on a slave server to match a new
+    zone on a master, other than accessing the slave's configuration
+    file and executing a reconfig.
+
   \item Operators wanted \textbf{standardized provisioning} that didn't
     require maintaining custom scripts and methods for updating slaves.
 
@@ -56,8 +61,8 @@
     database backend.
 
   \item BIND administrators found that deleting zones when using
-    \textbf{NZF config files} (\textbf{rndc addzone} and
-    \textbf{delzone}) was slow when the number of zones was large.
+    \textbf{NZF config files} (\textbf{rndc delzone}) was slow when the
+    number of zones was large.
 
   \end{itemize}
 }
@@ -130,7 +135,7 @@
 
 \frame
 {
-  \frametitle{Negative trust anchors}
+  \frametitle{Negative Trust Anchors}
 
   \begin{itemize}
 
@@ -208,9 +213,23 @@
 
   \item During 9.11 development cycle, we also implemented resolver EDNS
     CLIENT-SUBNET support for BIND which is complete and ready for
-    production use, but we are planning to release it in public BIND
-    only in 9.12 or later due to contractual reasons. We plan to make it
-    available to subscription users from next year.
+    production use, but we cannot release it currently due to
+    contractual reasons. We plan to make it available to subscription
+    users, but it will not be released in public releases until some
+    time in 2018.
+
+  \end{itemize}
+}
+
+\frame
+{
+  \frametitle{Changes to BIND development process}
+
+  \begin{itemize}
+
+  \item Performance lab.
+
+  \item Fuzz testing.
 
   \end{itemize}
 }
@@ -261,8 +280,8 @@
     advance so users can upgrade on announcement day.
 
   \item Most of these CVE bugs (crash-capable) were introduced many
-    years ago. Quality of the codebase is increasing while we remove
-    these bugs and refactor code.
+    years ago. Quality of the codebase is increasing as we remove these
+    bugs and refactor code.
 
   \end{itemize}
 
